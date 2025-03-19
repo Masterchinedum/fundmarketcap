@@ -7,9 +7,10 @@ const prismaClientSingleton = () => {
   })
 }
 
-// Use type for global declaration to avoid ESLint error
+// Properly extend globalThis type
 declare global {
-  const prisma: undefined | ReturnType<typeof prismaClientSingleton>
+  // eslint-disable-next-line no-var
+  var prisma: ReturnType<typeof prismaClientSingleton> | undefined
 }
 
 // Export the client as both default and named export
