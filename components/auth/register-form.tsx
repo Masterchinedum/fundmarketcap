@@ -1,6 +1,5 @@
 'use client'
 
-// import { z } from "zod";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
 import { useForm } from "react-hook-form";
@@ -63,11 +62,12 @@ export function RegisterForm() {
               name="name"
               render={({field}) => (
                 <FormItem>
-                  <FormLabel>Name</FormLabel>
+                  <FormLabel className="text-foreground font-medium">Name</FormLabel>
                   <FormControl>
                     <Input
                       type="text"
                       placeholder="John Doe" 
+                      className="bg-background focus-visible:ring-primary focus-visible:ring-2 transition-all"
                       disabled={pending}
                       {...field}
                     />
@@ -81,11 +81,12 @@ export function RegisterForm() {
               name="email"
               render={({field}) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="text-foreground font-medium">Email</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
                       placeholder="example@email.com" 
+                      className="bg-background focus-visible:ring-primary focus-visible:ring-2 transition-all"
                       disabled={pending}
                       {...field}
                     />
@@ -99,11 +100,12 @@ export function RegisterForm() {
               name="password"
               render={({field}) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel className="text-foreground font-medium">Password</FormLabel>
                   <FormControl>
                     <Input
                       type="password"
                       placeholder="*******"
+                      className="bg-background focus-visible:ring-primary focus-visible:ring-2 transition-all"
                       disabled={pending}
                       {...field}
                     />
@@ -115,7 +117,11 @@ export function RegisterForm() {
           </div>
           <FormError message={error} />
           <FormSuccess message={success} />
-          <Button type="submit" disabled={pending} className="w-full">
+          <Button 
+            type="submit" 
+            disabled={pending} 
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-colors"
+          >
             Create an account
           </Button>
         </form>

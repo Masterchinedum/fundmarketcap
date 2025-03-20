@@ -83,11 +83,12 @@ export function LoginForm() {
               name="code"
               render={({field}) => (
                 <FormItem>
-                  <FormLabel>Two Factor Code</FormLabel>
+                  <FormLabel className="text-foreground font-medium">Two Factor Code</FormLabel>
                   <FormControl>
                     <Input
                       type="text"
                       placeholder="123456" 
+                      className="bg-background focus-visible:ring-primary focus-visible:ring-2 transition-all"
                       disabled={pending}
                       {...field}
                     />
@@ -104,11 +105,12 @@ export function LoginForm() {
                   name="email"
                   render={({field}) => (
                     <FormItem>
-                      <FormLabel>Email</FormLabel>
+                      <FormLabel className="text-foreground font-medium">Email</FormLabel>
                       <FormControl>
                         <Input
                           type="email"
                           placeholder="example@email.com" 
+                          className="bg-background focus-visible:ring-primary focus-visible:ring-2 transition-all"
                           disabled={pending}
                           {...field}
                         />
@@ -122,16 +124,17 @@ export function LoginForm() {
                   name="password"
                   render={({field}) => (
                     <FormItem>
-                      <FormLabel>Password</FormLabel>
+                      <FormLabel className="text-foreground font-medium">Password</FormLabel>
                       <FormControl>
                         <Input
                           type="password"
                           placeholder="*******"
+                          className="bg-background focus-visible:ring-primary focus-visible:ring-2 transition-all"
                           disabled={pending}
                           {...field}
                         />
                       </FormControl>
-                      <Button size="sm" variant="link" className="px-0 font-normal" asChild>
+                      <Button size="sm" variant="link" className="px-0 font-normal text-primary hover:text-primary/80 transition-colors" asChild>
                         <Link href="/auth/reset">
                           Forgot password?
                         </Link>
@@ -145,7 +148,11 @@ export function LoginForm() {
           </div>
           <FormError message={error || urlError} />
           <FormSuccess message={success} />
-          <Button type="submit" disabled={pending} className="w-full">
+          <Button 
+            type="submit" 
+            disabled={pending} 
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-colors"
+          >
             {showTwoFactor ? 'Confirm' : 'Login'}
           </Button>
         </form>

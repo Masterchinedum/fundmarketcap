@@ -7,7 +7,6 @@ import { useSearchParams } from "next/navigation";
 import { Button } from "@/components/ui/button"
 import { DEFAULT_LOGIN_REDIRECT } from "@/routes";
 
-
 export function Social() {
   const searchParams = useSearchParams()
   const callbackUrl = searchParams.get('callbackUrl')
@@ -19,22 +18,22 @@ export function Social() {
   }
 
   return (
-    <div className="flex items-center w-full gap-2">
+    <div className="flex flex-col w-full gap-3">
       <Button 
-        size="lg"
         variant="outline"
         onClick={() => onClick('google')}
-        className="w-full"
+        className="w-full bg-background hover:bg-background/80 border-border hover:border-primary/30 transition-all h-11 flex items-center justify-center"
       >
-        <FcGoogle className="size-5" />
+        <FcGoogle className="h-5 w-5 mr-2" />
+        <span className="font-medium">Continue with Google</span>
       </Button>
       <Button 
-        size="lg"
         variant="outline"
         onClick={() => onClick('github')}
-        className="w-full"
+        className="w-full bg-background hover:bg-background/80 border-border hover:border-primary/30 transition-all h-11 flex items-center justify-center"
       >
-        <FaGithub className="size-5" />
+        <FaGithub className="h-5 w-5 mr-2" />
+        <span className="font-medium">Continue with GitHub</span>
       </Button>
     </div>
   )

@@ -59,11 +59,12 @@ export function ResetForm() {
               name="email"
               render={({field}) => (
                 <FormItem>
-                  <FormLabel>Email</FormLabel>
+                  <FormLabel className="text-foreground font-medium">Email</FormLabel>
                   <FormControl>
                     <Input
                       type="email"
                       placeholder="example@email.com" 
+                      className="bg-background focus-visible:ring-primary focus-visible:ring-2 transition-all"
                       disabled={pending}
                       {...field}
                     />
@@ -75,7 +76,11 @@ export function ResetForm() {
           </div>
           <FormError message={error} />
           <FormSuccess message={success} />
-          <Button type="submit" disabled={pending} className="w-full">
+          <Button 
+            type="submit" 
+            disabled={pending} 
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-colors"
+          >
             Send reset email
           </Button>
         </form>

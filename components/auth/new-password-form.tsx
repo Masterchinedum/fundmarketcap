@@ -4,7 +4,6 @@ import { useForm } from "react-hook-form"
 import { Button } from "../ui/button"
 import { Input } from "../ui/input"
 
-// import { register } from "@/actions/register"
 import { CardWrapper } from "@/components/auth/card-wrapper"
 import { FormError } from "@/components/form-error"
 import { FormSuccess } from "@/components/form-success"
@@ -66,11 +65,12 @@ export function NewPasswordForm() {
               name="password"
               render={({field}) => (
                 <FormItem>
-                  <FormLabel>Password</FormLabel>
+                  <FormLabel className="text-foreground font-medium">Password</FormLabel>
                   <FormControl>
                     <Input
                       type="password"
                       placeholder="*******"
+                      className="bg-background focus-visible:ring-primary focus-visible:ring-2 transition-all"
                       disabled={pending}
                       {...field}
                     />
@@ -82,7 +82,11 @@ export function NewPasswordForm() {
           </div>
           <FormError message={error} />
           <FormSuccess message={success} />
-          <Button type="submit" disabled={pending} className="w-full">
+          <Button 
+            type="submit" 
+            disabled={pending} 
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-medium transition-colors"
+          >
             Reset password
           </Button>
         </form>
