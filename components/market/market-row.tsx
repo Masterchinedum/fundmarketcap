@@ -15,15 +15,15 @@ export function MarketRow({ crypto }: MarketRowProps) {
     change >= 0 ? "text-green-500 dark:text-green-400" : "text-red-500 dark:text-red-400"
 
   return (
-    <TableRow className="hover:bg-muted/50">
+    <TableRow className="hover:bg-primary/5 transition-colors">
       <TableCell className="font-medium">{crypto.rank}</TableCell>
       <TableCell>
         <Link 
           href={`/crypto/${crypto.id}`}
-          className="flex items-center gap-2 hover:text-primary"
+          className="flex items-center gap-2 hover:text-primary transition-colors"
         >
-          <div className="w-6 h-6 rounded-full bg-muted flex items-center justify-center">
-            <span className="text-xs">{crypto.symbol.charAt(0)}</span>
+          <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center">
+            <span className="text-xs text-primary font-medium">{crypto.symbol.charAt(0)}</span>
           </div>
           <div className="flex flex-col">
             <span className="font-medium">{crypto.name}</span>

@@ -96,7 +96,7 @@ export function Search({ className }: SearchProps) {
         <input
           ref={inputRef}
           type="text"
-          className="w-full py-2 pl-10 pr-10 rounded-lg border border-input bg-background text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
+          className="w-full py-2 pl-10 pr-10 rounded-md border border-input bg-background text-sm ring-offset-background placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
           placeholder="Search coins..."
           value={query}
           onChange={(e) => handleSearch(e.target.value)}
@@ -106,7 +106,7 @@ export function Search({ className }: SearchProps) {
           <Button
             variant="ghost"
             size="sm"
-            className="absolute right-0 top-0 h-full px-3 py-2 hover:bg-transparent"
+            className="absolute right-0 top-0 h-full px-3 py-2 hover:text-primary"
             onClick={handleClear}
           >
             <IoClose className="w-4 h-4" />
@@ -117,7 +117,7 @@ export function Search({ className }: SearchProps) {
 
       {/* Search results dropdown */}
       {showResults && results.length > 0 && (
-        <div className="absolute z-50 w-full mt-1 bg-background border border-border rounded-md shadow-lg max-h-80 overflow-y-auto">
+        <div className="absolute z-50 w-full mt-1 border border-border bg-background rounded-md shadow-lg max-h-80 overflow-y-auto">
           <div className="p-2">
             {results.map((item) => (
               <div
@@ -126,14 +126,22 @@ export function Search({ className }: SearchProps) {
                 onClick={() => handleItemClick(item.id)}
               >
                 <div className="flex items-center">
-                  <div className="ml-2">
-                    <div className="text-sm font-medium">{item.name}</div>
+                  <div className="w-6 h-6 rounded-full bg-primary/10 flex items-center justify-center mr-2">
+                    <span className="text-xs font-medium text-primary">{item.symbol.charAt(0)}</span>
+                  </div>
+                  <div>
+                    <div className="text-sm font-medium text-foreground">{item.name}</div>
                     <div className="text-xs text-muted-foreground">{item.symbol}</div>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-sm font-medium">{item.price}</div>
-                  <div className={`text-xs ${parseFloat(item.change24h) >= 0 ? 'text-green-500' : 'text-red-500'}`}>
+                  <div className="text-sm font-medium text-foreground">{item.price}</div>
+                  <div className={cn(
+                    "text-xs",
+                    parseFloat(item.change24h) >= 0 
+                      ? "text-emerald-500 dark:text-emerald-400"
+                      : "text-red-500 dark:text-red-400"
+                  )}>
                     {item.change24h}
                   </div>
                 </div>

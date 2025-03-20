@@ -44,7 +44,7 @@ export function Navbar() {
   const pathname = usePathname()
   
   return (
-    <div className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
+    <div className="border-b border-border bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
       <div className="flex h-16 items-center px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl">
         <div className="mr-4 md:hidden">
           <MobileNav routes={routes} />
@@ -53,7 +53,7 @@ export function Navbar() {
         {/* Logo */}
         <Link href="/" className="flex items-center">
           <span className="text-xl font-bold text-primary mr-2">₣MC</span>
-          <span className="hidden md:inline-block font-semibold">FundMarketCap</span>
+          <span className="hidden md:inline-block font-semibold text-foreground">FundMarketCap</span>
         </Link>
         
         {/* Desktop Navigation */}
@@ -87,7 +87,7 @@ export function Navbar() {
             <UserMenu />
           ) : (
             <LoginButton mode="modal" asChild>
-              <Button variant="default" size="sm">Sign in</Button>
+              <Button size="sm">Sign in</Button>
             </LoginButton>
           )}
         </div>

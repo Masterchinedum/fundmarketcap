@@ -106,7 +106,7 @@ export default function Home() {
       <Navbar />
       <main className="flex min-h-screen flex-col">
         {/* Hero section */}
-        <section className="py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/10 to-background border-b">
+        <section className="py-10 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-primary/5 via-primary/10 to-background border-b">
           <div className="max-w-7xl mx-auto space-y-6">
             <div className="text-center space-y-4">
               <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold tracking-tight">
@@ -119,47 +119,47 @@ export default function Home() {
             
             {/* Market Stats */}
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              <div className="bg-card p-4 rounded-lg border shadow-sm">
+              <div className="bg-card hover:border-primary/50 transition-colors p-4 rounded-lg border shadow-sm">
                 <div className="flex items-center text-sm text-muted-foreground mb-2">
-                  <DollarSign className="h-4 w-4 mr-1" />
+                  <DollarSign className="h-4 w-4 mr-1 text-primary" />
                   <span>Market Cap</span>
                 </div>
-                <p className="font-bold">${(marketStats.marketCap / 1e12).toFixed(2)}T</p>
+                <p className="font-bold text-primary">${(marketStats.marketCap / 1e12).toFixed(2)}T</p>
               </div>
-              <div className="bg-card p-4 rounded-lg border shadow-sm">
+              <div className="bg-card hover:border-primary/50 transition-colors p-4 rounded-lg border shadow-sm">
                 <div className="flex items-center text-sm text-muted-foreground mb-2">
-                  <BarChart3 className="h-4 w-4 mr-1" />
+                  <BarChart3 className="h-4 w-4 mr-1 text-primary" />
                   <span>24h Volume</span>
                 </div>
-                <p className="font-bold">${(marketStats.volume24h / 1e9).toFixed(1)}B</p>
+                <p className="font-bold text-primary">${(marketStats.volume24h / 1e9).toFixed(1)}B</p>
               </div>
-              <div className="bg-card p-4 rounded-lg border shadow-sm">
+              <div className="bg-card hover:border-primary/50 transition-colors p-4 rounded-lg border shadow-sm">
                 <div className="flex items-center text-sm text-muted-foreground mb-2">
-                  <TrendingUp className="h-4 w-4 mr-1" />
+                  <TrendingUp className="h-4 w-4 mr-1 text-primary" />
                   <span>BTC Dominance</span>
                 </div>
-                <p className="font-bold">{marketStats.btcDominance}%</p>
+                <p className="font-bold text-primary">{marketStats.btcDominance}%</p>
               </div>
-              <div className="bg-card p-4 rounded-lg border shadow-sm">
+              <div className="bg-card hover:border-primary/50 transition-colors p-4 rounded-lg border shadow-sm">
                 <div className="flex items-center text-sm text-muted-foreground mb-2">
-                  <TrendingUp className="h-4 w-4 mr-1" />
+                  <TrendingUp className="h-4 w-4 mr-1 text-primary" />
                   <span>ETH Dominance</span>
                 </div>
-                <p className="font-bold">{marketStats.ethDominance}%</p>
+                <p className="font-bold text-primary">{marketStats.ethDominance}%</p>
               </div>
-              <div className="bg-card p-4 rounded-lg border shadow-sm">
+              <div className="bg-card hover:border-primary/50 transition-colors p-4 rounded-lg border shadow-sm">
                 <div className="flex items-center text-sm text-muted-foreground mb-2">
-                  <TrendingUp className="h-4 w-4 mr-1" />
+                  <TrendingUp className="h-4 w-4 mr-1 text-primary" />
                   <span>Cryptocurrencies</span>
                 </div>
-                <p className="font-bold">{marketStats.activeCryptocurrencies}</p>
+                <p className="font-bold text-primary">{marketStats.activeCryptocurrencies}</p>
               </div>
-              <div className="bg-card p-4 rounded-lg border shadow-sm">
+              <div className="bg-card hover:border-primary/50 transition-colors p-4 rounded-lg border shadow-sm">
                 <div className="flex items-center text-sm text-muted-foreground mb-2">
-                  <TrendingUp className="h-4 w-4 mr-1" />
+                  <TrendingUp className="h-4 w-4 mr-1 text-primary" />
                   <span>Markets</span>
                 </div>
-                <p className="font-bold">{marketStats.markets}</p>
+                <p className="font-bold text-primary">{marketStats.markets}</p>
               </div>
             </div>
           </div>
@@ -248,7 +248,7 @@ export default function Home() {
                 placeholder="Enter your email" 
                 className="flex-grow rounded-l-md border-y border-l border-input bg-background px-3 py-2 text-sm ring-offset-background focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
               />
-              <button className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-r-md px-4 py-2 font-medium">
+              <button className="bg-primary text-primary-foreground hover:bg-primary/90 transition-all rounded-r-md px-4 py-2 font-medium">
                 Subscribe
               </button>
             </form>

@@ -74,7 +74,9 @@ export function MarketTable({
 
   const renderSortIcon = (column: keyof Cryptocurrency) => {
     if (sortColumn !== column) return null
-    return sortDirection === "asc" ? <ChevronUp className="ml-1 h-4 w-4" /> : <ChevronDown className="ml-1 h-4 w-4" />
+    return sortDirection === "asc" 
+      ? <ChevronUp className="ml-1 h-4 w-4 text-primary" /> 
+      : <ChevronDown className="ml-1 h-4 w-4 text-primary" />
   }
 
   return (
@@ -85,8 +87,8 @@ export function MarketTable({
           {caption && <TableCaption>{caption}</TableCaption>}
           <TableHeader>
             <TableRow>
-              <TableHead className="w-[50px]" onClick={() => handleSort("rank")}>
-                <div className="flex items-center cursor-pointer">#
+              <TableHead className="w-[50px] hover:text-primary transition-colors" onClick={() => handleSort("rank")}>
+                <div className="flex items-center cursor-pointer group">#
                   {renderSortIcon("rank")}
                 </div>
               </TableHead>
